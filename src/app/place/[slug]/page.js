@@ -10,7 +10,6 @@ async function getData(slug) {
 
 export default async function BusinessPage({ params }) {
     const business = await getData(params.slug);
-    console.log(business);
 
     if (!business) {
         return notFound();
