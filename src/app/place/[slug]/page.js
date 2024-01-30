@@ -1,12 +1,20 @@
+import { notFound } from 'next/navigation';
+
 import LazyMap from '@/components/LazyMap';
 
 async function getData(slug) {
     const res = await fetch(`http://localhost:1337/api/slugify/slugs/business/${slug}?populate=*`);
-    return res.json();
+    const data = (await res.json()).data?.attributes;
+    return data;
 }
 
 export default async function BusinessPage({ params }) {
-    const business = (await getData(params.slug))?.data?.attributes;
+    const business = await getData(params.slug);
+    console.log(business);
+
+    if (!business) {
+        return notFound();
+    }
 
     return business ? (
         <main>
