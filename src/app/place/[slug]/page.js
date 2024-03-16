@@ -1,11 +1,13 @@
 import { notFound } from 'next/navigation';
 
 import LazyMap from '@/components/LazyMap';
+import Hours from './Hours';
 
 async function getData(slug) {
-    const res = await fetch(`http://localhost:1337/api/slugify/slugs/business/${slug}?populate=*`);
-    const data = (await res.json()).data?.attributes;
-    return data;
+    const res = await fetch(`http://localhost:1337/api/slugify/slugs/business/abuelos-mexican-restaurant?populate[location]=*&populate[hours][populate]=*`);
+    
+    const data = await res.json();
+    return data.data?.attributes;
 }
 
 export default async function BusinessPage({ params }) {
@@ -15,11 +17,19 @@ export default async function BusinessPage({ params }) {
         return notFound();
     }
 
+    console.log(business);
+    const markers = [{
+        lat: business.location.lat,
+        lon: business.location.lon,
+        info: business.name,
+    }];
+
     return business ? (
         <main>
             <p>{business.name}</p>
             <p>{business.website}</p>
-            <LazyMap coordinate={[business.coordinate.latitude, business.coordinate.longitude]} className="w-40 h-40" />
+            <LazyMap markers={markers} className="w-40 h-40" />
+            <Hours hours={business.hours} />
         </main>
     ) : <main />
 }
