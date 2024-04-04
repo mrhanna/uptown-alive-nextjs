@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 
 import LazyMap from '@/components/LazyMap';
-import  { HoursListing } from './Hours';
+import  { HoursListing, OpenStatus } from './Hours';
 
 async function getData(slug) {
     const res = await fetch(`http://localhost:1337/api/slugify/slugs/business/${slug}?populate=*`);
@@ -17,7 +17,7 @@ export default async function BusinessPage({ params }) {
         return notFound();
     }
 
-    console.log(business);
+    //console.log(business);
     const markers = [{
         lat: business.location.lat,
         lon: business.location.lon,
@@ -30,6 +30,7 @@ export default async function BusinessPage({ params }) {
             <p>{business.website}</p>
             <LazyMap markers={markers} className="w-40 h-40" />
             <HoursListing hours={business.hours} />
+            <OpenStatus hours={business.hours} />
         </main>
     ) : <main />
 }
