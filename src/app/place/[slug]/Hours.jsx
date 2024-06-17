@@ -47,7 +47,7 @@ const OpenStatus = ({hours}) => {
     if (info.status === 'closed') {
         return (
             <>
-                <span className="text-red-600 font-bold">Closed</span>
+                <span className="text-red-600 font-bold">Closed&nbsp;</span>
                 {info.until &&
                     <> Opens {info.day ?? ''} {formatTimeString(info.until)}</>
                 }
@@ -58,7 +58,7 @@ const OpenStatus = ({hours}) => {
             <>
                 { timeUntil > 45 ?
                     <>
-                        <span className="text-green-600 font-bold">Open</span> 
+                        <span className="text-green-600 font-bold">Open&nbsp;</span> 
                         <> Closes at </>
                     </>
                     :
@@ -151,7 +151,7 @@ function nextOpenTime(hours, now) {
         for (const {from} of hours[today].hours) {
             if (currentTime < Time(from)) {
                 return {
-                    status: closed,
+                    status: 'closed',
                     until: from,
                     // day: today,
                 }
