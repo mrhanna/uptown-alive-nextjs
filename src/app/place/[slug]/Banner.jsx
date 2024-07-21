@@ -26,6 +26,9 @@ const slickSettings = {
     arrows: false,
 };
 
+const imageLoader = ({src}) => `http://localhost:1337${src}`;
+
+
 const Banner = ({
     name,
     tags,
@@ -34,25 +37,25 @@ const Banner = ({
 }) => {
     const slider = useRef(null);
 
+    const images = photos.map(({attributes}, i) => {
+        console.log(attributes);
+        return (
+            <div className="h-[400px]" key={i}>
+                <Image 
+                    loader={imageLoader}
+                    src={attributes.url} 
+                    alt={attributes.alternativeText} 
+                    height={400}
+                    width={400*attributes.width/attributes.height}
+                />
+            </div>
+        )
+    });
+
     return (
         <div className="w-full relative mb-4">
             <Slider {...slickSettings} ref={slider}>
-                <div className="h-[400px]">
-                    <Image src="https://picsum.photos/400/400" 
-                        width={400} height={400} />
-                </div>
-                <div className="h-[400px]">
-                    <Image src="https://picsum.photos/400/400" 
-                        width={400} height={400} />
-                </div>
-                <div className="h-[400px]">
-                    <Image src="https://picsum.photos/400/400" 
-                        width={400} height={400} />
-                </div>
-                <div className="h-[400px]">
-                    <Image src="https://picsum.photos/400/400" 
-                        width={400} height={400} />
-                </div>
+                {...images}
             </Slider>
 
             <button className="absolute  top-0 bottom-0 left-4" onClick={() => { slider?.current?.slickPrev() }}>
