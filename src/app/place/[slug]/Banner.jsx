@@ -37,7 +37,7 @@ const Banner = ({
 }) => {
     const slider = useRef(null);
 
-    const images = photos.map(({attributes}, i) => {
+    const images = photos?.map(({attributes}, i) => {
         console.log(attributes);
         return (
             <div className="h-[400px]" key={i}>
@@ -53,10 +53,12 @@ const Banner = ({
     });
 
     return (
-        <div className="w-full relative mb-4">
-            <Slider {...slickSettings} ref={slider}>
-                {...images}
-            </Slider>
+        <div className="w-full relative mb-4 h-[400px]">
+            { images &&
+                <Slider {...slickSettings} ref={slider}>
+                    {...images}
+                </Slider>
+            }
 
             <button className="absolute  top-0 bottom-0 left-4" onClick={() => { slider?.current?.slickPrev() }}>
                 <ChevronLeftIcon className="w-[24px] h-[24px]" />

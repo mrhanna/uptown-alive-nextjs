@@ -27,7 +27,7 @@ export default async function BusinessPage({ params }) {
 
     return business ? (
         <main>
-            <Banner name={business.name} hours={business.hours} photos={business.photos.data} />
+            <Banner name={business.name} hours={business.hours} photos={business.photos?.data} />
             
             <div className="container md:grid md:grid-cols-3">
                 <LocationCard location={business.location} hours={business.hours} />
