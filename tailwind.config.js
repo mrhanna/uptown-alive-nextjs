@@ -1,3 +1,5 @@
+import colors from 'tailwindcss/colors';
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -15,6 +17,19 @@ module.exports = {
         xl: '8rem',
         '2xl': '10rem',
       },
+    },
+    colors: {
+      blue: '#003049ff',
+      red: '#d62828ff',
+      orange: '#f77f00ff',
+      xanthous: '#fcbf49ff',
+      vanilla: '#eae2b7ff',
+      offwhite: '#fafafa',
+      white: '#ffffff',
+      success: colors.green[600],
+      danger: colors.red[600],
+      warning: colors.yellow[600],
+      black: '#000',
     },
     extend: {
       backgroundImage: {

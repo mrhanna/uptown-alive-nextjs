@@ -1,9 +1,12 @@
-import { Inter } from 'next/font/google'
+import { Lato } from 'next/font/google'
 
 import './globals.css'
 import Header from './header'
 
-const inter = Inter({ subsets: ['latin'] })
+const lato = Lato({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-zinc-100`}>
+      <body className={`${lato.className} bg-vanilla`}>
         <Header />
         {children}
       </body>

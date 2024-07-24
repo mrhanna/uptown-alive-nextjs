@@ -24,7 +24,7 @@ const HoursListing = ({ hours }) => {
 function DateRow({ day, info, isToday }) {
     return (
         <tr className={ isToday ? 'font-bold' : ''}>
-            <td>{day.charAt(0).toUpperCase() + day.slice(1)}</td>
+            <td className="pr-6">{day.charAt(0).toUpperCase() + day.slice(1)}</td>
             <td>
                 { info.closed ? (
                     <div className="m-0">Closed</div>
@@ -47,7 +47,7 @@ const OpenStatus = ({hours}) => {
     if (info.status === 'closed') {
         return (
             <>
-                <span className="text-red-600 font-bold">Closed&nbsp;</span>
+                <span className="text-danger font-bold">Closed&nbsp;</span>
                 {info.until &&
                     <> Opens {info.day ?? ''} {formatTimeString(info.until)}</>
                 }
@@ -58,12 +58,12 @@ const OpenStatus = ({hours}) => {
             <>
                 { timeUntil > 45 ?
                     <>
-                        <span className="text-green-600 font-bold">Open&nbsp;</span> 
+                        <span className="text-success font-bold">Open&nbsp;</span> 
                         <> Closes at </>
                     </>
                     :
                     <>
-                        <span className="text-yellow-600 font-bold">Closes soon</span> 
+                        <span className="text-warning font-bold">Closes soon</span> 
                         <> at </>
                     </>
                 }

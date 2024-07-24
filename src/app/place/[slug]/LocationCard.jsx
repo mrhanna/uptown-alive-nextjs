@@ -17,7 +17,7 @@ const LocationCard = ({location, hours}) => {
 
     return (
         <Card title="Location">
-            <LazyMap markers={markers} className="w-full h-40 my-4" />
+            <LazyMap markers={markers} className="w-full h-40" />
             <div className="flex my-4 align-middle text-base/6">
                 <MapPinIcon className="w-6 h-6 mr-2" />
                 <p>{location.address}</p>

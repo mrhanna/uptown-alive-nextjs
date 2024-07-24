@@ -2,6 +2,13 @@
 
 import React, { useRef } from 'react';
 
+import { Inter } from 'next/font/google';
+const inter = Inter({
+    weight: '700',
+    subsets: ['latin'],
+});
+  
+
 import Slider from 'react-slick';
 import Image from 'next/image';
 import { OpenStatus } from './Hours';
@@ -60,17 +67,17 @@ const Banner = ({
                 </Slider>
             }
 
-            <button className="absolute  top-0 bottom-0 left-4" onClick={() => { slider?.current?.slickPrev() }}>
+            <button className="absolute z-30 top-0 bottom-0 left-4" onClick={() => { slider?.current?.slickPrev() }}>
                 <ChevronLeftIcon className="w-[24px] h-[24px]" />
             </button>
 
-            <button className="absolute top-0 bottom-0 right-4" onClick={() => { slider?.current?.slickNext() }}>
+            <button className="absolute z-30 top-0 bottom-0 right-4" onClick={() => { slider?.current?.slickNext() }}>
                 <ChevronRightIcon className="w-[24px] h-[24px]" />
             </button>
 
-            <div className="absolute bottom-0 bg-gradient-to-t from-black text-white w-full py-8">
+            <div className="absolute bottom-0 bg-gradient-to-t from-black text-white w-full pb-8 pt-16">
                 <div className="container">
-                    <h1 className="text-5xl leading-relaxed font-bold">{name}</h1>
+                    <h1 className={`${inter.className} text-5xl leading-relaxed`}>{name}</h1>
                     <p className="text-base"><OpenStatus hours={hours} /></p>
                 </div>
             </div>
