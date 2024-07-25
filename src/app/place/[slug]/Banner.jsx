@@ -13,6 +13,8 @@ import Slider from 'react-slick';
 import Image from 'next/image';
 import { OpenStatus } from './Hours';
 
+import TagButton from '@/components/TagButton';
+
 import {
     ChevronLeftIcon,
     ChevronRightIcon,
@@ -63,7 +65,7 @@ const Banner = ({
         <div className="w-full relative mb-4 h-[400px]">
             { images &&
                 <Slider {...slickSettings} ref={slider}>
-                    {...images}
+                    {images}
                 </Slider>
             }
 
@@ -75,10 +77,17 @@ const Banner = ({
                 <ChevronRightIcon className="w-[24px] h-[24px]" />
             </button>
 
-            <div className="absolute bottom-0 bg-gradient-to-t from-black text-white w-full pb-8 pt-16">
+            <div className="absolute bottom-0 bg-gradient-to-t from-black text-white w-full pb-6 pt-20">
                 <div className="container">
                     <h1 className={`${inter.className} text-5xl leading-relaxed`}>{name}</h1>
-                    <p className="text-base"><OpenStatus hours={hours} /></p>
+                    <div className="flex gap-8 items-center">
+                        <p className="text-base py-1"><OpenStatus hours={hours} /></p>
+                        { !!tags &&
+                            <div className="flex gap-2">
+                                {tags?.map((tag) => (<TagButton key={tag.id} tag={tag} />))}
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
