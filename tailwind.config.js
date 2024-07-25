@@ -19,9 +19,20 @@ module.exports = {
       },
     },
     colors: {
-      blue: '#003049ff',
-      red: '#d62828ff',
-      orange: '#f77f00ff',
+      blue: {
+        DEFAULT: '#003049ff',
+        lighter: '#006aa3',
+        lightest: '#009ff5',
+      },
+      red: {
+        DEFAULT: '#d62828ff',
+        darker: '#ac2020',
+        darkest: '#791616',
+      },
+      orange: {
+        DEFAULT: '#fbac0e',
+        darker: '#f77f00ff',
+      },
       xanthous: '#fcbf49ff',
       vanilla: '#eae2b7ff',
       offwhite: '#fafafa',
@@ -30,6 +41,7 @@ module.exports = {
       danger: colors.red[600],
       warning: colors.yellow[600],
       black: '#000',
+      dark: '#444',
     },
     extend: {
       backgroundImage: {

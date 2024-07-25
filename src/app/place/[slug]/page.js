@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 
 import  { HoursListing, OpenStatus } from './Hours';
 import LocationCard from './LocationCard';
+import ContactCard from './ContactCard';
 import Banner from './Banner';
 
 async function getData(slug) {
@@ -18,19 +19,18 @@ export default async function BusinessPage({ params }) {
         return notFound();
     }
 
-    //console.log(business);
-    const markers = [{
-        lat: business.location.lat,
-        lon: business.location.lon,
-        info: business.name,
-    }];
+    const contactInfo = {
+        ...business.links,
+        location: business.location,
+        hours: business.hours,
+    }
 
     return business ? (
         <main>
             <Banner name={business.name} hours={business.hours} photos={business.photos?.data} />
             
             <div className="container md:grid md:grid-cols-3">
-                <LocationCard location={business.location} hours={business.hours} />
+                <ContactCard info={contactInfo} />
             </div>
         </main>
     ) : <main />
