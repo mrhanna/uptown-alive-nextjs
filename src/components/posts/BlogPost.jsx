@@ -3,7 +3,7 @@ import BlockRendererClient from './BlockRendererClient';
 
 const BlogPost = ({ post }) => {
     return (
-        <article className="container">
+        <article className="container mt-12">
             <BlockRendererClient content={post.content} />
         </article>
     )
