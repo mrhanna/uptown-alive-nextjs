@@ -22,7 +22,7 @@ import {
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./slickfix.css";
+// import "./slickfix.css"; //.slick-track { line-height: 0 }
 
 const slickSettings = {
     className: "slider variable-width",
@@ -61,7 +61,7 @@ const Banner = ({
     });
 
     return (
-        <div className="w-full relative mb-4 h-[400px]">
+        <div className="w-full relative mb-4 h-[400px] [&_.slick-track]:leading-[0]">
             { images &&
                 <Slider {...slickSettings} ref={slider}>
                     {images}
