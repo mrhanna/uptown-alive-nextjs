@@ -3,7 +3,6 @@ import BlockRendererClient from './BlockRendererClient';
 import FeaturedMedia from './FeaturedMedia';
 
 import { Merriweather } from 'next/font/google';
-import { todo } from 'node:test';
 
 const merriweather = Merriweather({
     weight: '400',
