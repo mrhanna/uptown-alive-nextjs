@@ -37,7 +37,6 @@ const slickSettings = {
 
 const imageLoader = ({src}) => `http://localhost:1337${src}`;
 
-
 const Banner = ({
     name,
     tags,
