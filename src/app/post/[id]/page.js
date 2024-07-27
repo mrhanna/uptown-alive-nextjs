@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import Post from '@/components/posts/Post';
+import Post from '@/components/Post';
 
 async function getData(id) {
     const res = await fetch(`http://localhost:1337/api/posts/${id}?populate=*`);

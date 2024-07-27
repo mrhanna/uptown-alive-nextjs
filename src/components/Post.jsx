@@ -1,9 +1,9 @@
 import React from 'react';
 
-import BlogPost from './BlogPost';
-import VerticalVideoPost from './VerticalVideoPost';
-import MediaGalleryPost from './MediaGalleryPost';
-import QuotePost from './QuotePost';
+import BlogPost from './posts/BlogPost';
+import VerticalVideoPost from './posts/VerticalVideoPost';
+import MediaGalleryPost from './posts/MediaGalleryPost';
+import QuotePost from './posts/QuotePost';
 
 const Post = ({post}) => {
     switch (post.type) {
