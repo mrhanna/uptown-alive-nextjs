@@ -4,8 +4,8 @@ import LazyMap from '@/components/LazyMap';
 import { HoursListing } from './Hours';
 
 import {
-    MapPinIcon,
-} from '@heroicons/react/24/solid';
+    FaMapMarkedAlt
+} from 'react-icons/fa';
 
 
 const LocationCard = ({location, hours}) => {
@@ -19,7 +19,7 @@ const LocationCard = ({location, hours}) => {
         <Card title="Location">
             <LazyMap markers={markers} className="w-full h-40" />
             <div className="flex my-4 align-middle text-base/6">
-                <MapPinIcon className="w-6 h-6 mr-2" />
+                <FaMapMarkedAlt className="w-6 h-6 mr-2" />
                 <p>{location.address}</p>
             </div>
             <HoursListing hours={hours} />

@@ -6,9 +6,9 @@ import Slider from 'react-slick';
 import Image from 'next/image';
 
 import {
-    ChevronLeftIcon,
-    ChevronRightIcon,
-} from '@heroicons/react/24/solid';
+    FaChevronLeft,
+    FaChevronRight,
+} from 'react-icons/fa';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -45,7 +45,7 @@ const Gallery = ({
     
         else if (attributes.mime.indexOf('video') === 0) {
             return (
-                <div className="w-full aspect-video relative" key={id}>
+                <div className="w-full aspect-video relative text-center" key={id}>
                     <video className="h-full inline-block" controls>
                         <source type={attributes.mime} src={`http://localhost:1337${attributes.url}`} />
                         This browser dpes not support video
@@ -56,7 +56,7 @@ const Gallery = ({
     });
 
     return (
-        <div className="w-full relative my-8 bg-dark [&_.slick-track]:leading-[0]">
+        <div className="w-full relative my-12 [&_.slick-track]:leading-[0]">
             { images &&
                 <Slider {...slickSettings} ref={slider}>
                     {images}
@@ -64,11 +64,11 @@ const Gallery = ({
             }
 
             <button className="absolute z-30 top-0 bottom-0 left-4" onClick={() => { slider?.current?.slickPrev() }}>
-                <ChevronLeftIcon className="w-[24px] h-[24px]" />
+                <FaChevronLeft className="w-[24px] h-[24px]" />
             </button>
 
             <button className="absolute z-30 top-0 bottom-0 right-4" onClick={() => { slider?.current?.slickNext() }}>
-                <ChevronRightIcon className="w-[24px] h-[24px]" />
+                <FaChevronRight className="w-[24px] h-[24px]" />
             </button>
         </div>
     )

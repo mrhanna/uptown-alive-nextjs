@@ -8,14 +8,12 @@ import {
     FaGlobeAmericas,
     FaPhone,
     FaMapMarkedAlt,
-    FaMapMarkerAlt,
     FaFacebook,
     FaInstagram,
     FaTiktok,
 } from 'react-icons/fa';
 
 import {
-    FaF,
     FaXTwitter,
 } from 'react-icons/fa6';
 

@@ -16,9 +16,9 @@ import { OpenStatus } from './Hours';
 import TagButton from '@/components/TagButton';
 
 import {
-    ChevronLeftIcon,
-    ChevronRightIcon,
-} from '@heroicons/react/24/solid';
+    FaChevronLeft,
+    FaChevronRight,
+} from 'react-icons/fa';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -69,11 +69,11 @@ const Banner = ({
             }
 
             <button className="absolute z-30 top-0 bottom-0 left-4" onClick={() => { slider?.current?.slickPrev() }}>
-                <ChevronLeftIcon className="w-[24px] h-[24px]" />
+                <FaChevronLeft className="w-[24px] h-[24px]" />
             </button>
 
             <button className="absolute z-30 top-0 bottom-0 right-4" onClick={() => { slider?.current?.slickNext() }}>
-                <ChevronRightIcon className="w-[24px] h-[24px]" />
+                <FaChevronRight className="w-[24px] h-[24px]" />
             </button>
 
             <div className="absolute bottom-0 bg-gradient-to-t from-black text-white w-full pb-6 pt-20">
