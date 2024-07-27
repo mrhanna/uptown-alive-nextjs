@@ -14,7 +14,7 @@ const MediaGalleryPost = ({ post }) => {
     });
 
     return (
-        <article className="mt-32 max-w-screen-md max-md:container mx-auto">
+        <article className="max-w-screen-md max-md:container mx-auto">
             <Gallery media={post.gallery.data} /> 
             
             <p className="text-sm mb-8">Published {published}</p>

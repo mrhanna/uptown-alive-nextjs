@@ -22,7 +22,7 @@ const BlogPost = ({ post }) => {
 
     // TODO: figure out the image sizing thing
     return (
-        <article className={`${merriweather.className} text-[#111] mt-32 max-w-screen-md max-md:container mx-auto text-lg`}>
+        <article className={`${merriweather.className} text-[#111] max-w-screen-md max-md:container mx-auto text-lg`}>
             {!!post.title &&
                 <h1 className="text-5xl my-4">{post.title}</h1>
             }

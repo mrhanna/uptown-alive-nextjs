@@ -18,7 +18,7 @@ export default async function PostPage({ params }) {
     }
 
     return post ? (
-        <main>
+        <main className="mt-32">
             <Post post={post} />
         </main>
     ) : <main />
