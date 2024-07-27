@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import { FaQuoteLeft } from "react-icons/fa";
 
 const blocks = {
     paragraph: ({ children }) => <p className="my-4">{children}</p>,
@@ -28,7 +29,12 @@ const blocks = {
                 return <ol className="list-decimal list-inside">{children}</ol>;
         }
     },
-    quote: ({children}) => <blockquote className="mx-8 border-l-2 border-l-dark pl-8 py-4 italic">{children}</blockquote>,
+    quote: ({children}) => (
+      <blockquote className="mx-12 pl-8 py-4 italic relative">
+        <FaQuoteLeft className="absolute top-1/2 w-8 h-8 -mt-4 -left-8" />
+        {children}
+      </blockquote>
+    ),
     code: ({children}) => <code className="bg-[#ccc] font-mono px-1">{children}</code>,
     image: ({image}) => (
         <div class="text-center">
