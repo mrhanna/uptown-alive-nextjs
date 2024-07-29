@@ -6,7 +6,7 @@ import FeaturedMedia from './FeaturedMedia';
 const VerticalVideoPost = ({ post }) => {
 
     return (
-        <article className="bg-dark">
+        <article>
             <div className="relative aspect-[9/16] h-[80vh] mx-auto">
                 <FeaturedMedia featuredMedia={post.featuredMedia} />
 
