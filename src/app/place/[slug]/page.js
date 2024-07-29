@@ -5,15 +5,17 @@ import LocationCard from './LocationCard';
 import ContactCard from './ContactCard';
 import Banner from './Banner';
 
+import PostFeed from '@/components/PostFeed';
+
 async function getData(slug) {
     const res = await fetch(`http://localhost:1337/api/slugify/slugs/business/${slug}?populate=*`);
     
     const data = await res.json();
-    return data.data?.attributes;
+    return data.data;
 }
 
 export default async function BusinessPage({ params }) {
-    const business = await getData(params.slug);
+    const { attributes: business, id } = await getData(params.slug);
 
     if (!business) {
         return notFound();
@@ -32,6 +34,8 @@ export default async function BusinessPage({ params }) {
             <div className="container md:grid md:grid-cols-3">
                 <ContactCard info={contactInfo} />
             </div>
+
+            <PostFeed businessId={id} />
         </main>
     ) : <main />
 }
