@@ -29,6 +29,7 @@ export default function Map(props) {
         );
     });
 
+
     if (markers.length > 0) {
         center[0] /= markers.length;
         center[1] /= markers.length;
@@ -40,7 +41,8 @@ export default function Map(props) {
             zoom={13}
             attributionControl={false}
             zoomControl={false}
-            {...props}>
+            {...props}
+            className={`z-0 ${props.className || ''}`}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
