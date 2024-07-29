@@ -46,7 +46,6 @@ const Banner = ({
     const slider = useRef(null);
 
     const images = photos?.map(({attributes}, i) => {
-        console.log(attributes);
         return (
             <div className="h-[400px]" key={i}>
                 <Image 

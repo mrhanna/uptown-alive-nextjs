@@ -11,7 +11,6 @@ async function getData(id) {
 
 export default async function PostPage({ params }) {
     const post = await getData(params.id);
-    console.log(post);
 
     if (!post) {
         return notFound();

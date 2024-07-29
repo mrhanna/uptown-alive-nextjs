@@ -40,9 +40,7 @@ function DateRow({ day, info, isToday }) {
 
 const OpenStatus = ({hours}) => {
     const info = calculateOpenStatus(hours);
-    console.log(info);
     const timeUntil = ((Time(info.until) - Time(new Date())) % (24 * 60 * 60 * 1000)) / (1000 * 60);
-    console.log(timeUntil);
 
     if (info.status === 'closed') {
         return (

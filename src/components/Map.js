@@ -29,8 +29,6 @@ export default function Map(props) {
         );
     });
 
-    console.log(center);
-
     if (markers.length > 0) {
         center[0] /= markers.length;
         center[1] /= markers.length;

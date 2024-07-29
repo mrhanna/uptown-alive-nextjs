@@ -10,15 +10,15 @@ const blocks = {
     heading: ({ children, level }) => {
         switch (level) {
           case 1:
-            return <h2 className="text-3xl">{children}</h2>
+            return <h2 className="text-3xl font-bold mt-12">{children}</h2>
           case 2:
-            return <h3 className="text-2xl">{children}</h3>
+            return <h3 className="text-2xl font-bold mt-12">{children}</h3>
           case 3:
-            return <h4 className="text-xl">{children}</h4>
+            return <h4 className="text-xl font-bold mt-12">{children}</h4>
           case 4:
-            return <h5 className="text-lg font-bold">{children}</h5>
+            return <h5 className="text-lg font-bold mt-12">{children}</h5>
           default:
-            return <h6 className="text-lg font-bold">{children}</h6>
+            return <h6 className="text-lg font-bold mt-12">{children}</h6>
         }
     }, 
     list: ({children, format}) => {
