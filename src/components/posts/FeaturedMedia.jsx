@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-
 import Image from 'next/image';
+import FeedVideoPlayer from './FeedVideoPlayer';
 
 const imageLoader = ({src}) => `http://localhost:1337${src}`;
 
-const FeaturedMedia = ({featuredMedia}) => {
+const FeaturedMedia = ({featuredMedia, caption}) => {
     if (featuredMedia.data.attributes.mime.indexOf('image') === 0) {
         return (
             <Image 
@@ -21,10 +21,7 @@ const FeaturedMedia = ({featuredMedia}) => {
 
     else if (featuredMedia.data.attributes.mime.indexOf('video') === 0) {
         return (
-            <video className="w-full h-full" controls>
-                <source type={featuredMedia.data.attributes.mime} src={`http://localhost:1337${featuredMedia.data.attributes.url}`} />
-                This browser dpes not support video
-            </video>
+            <FeedVideoPlayer src={`http://localhost:1337${featuredMedia.data.attributes.url}`} caption={caption} />
         );
     }
 }
