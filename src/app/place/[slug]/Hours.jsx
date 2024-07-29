@@ -43,11 +43,12 @@ const OpenStatus = ({hours}) => {
     const timeUntil = ((Time(info.until) - Time(new Date())) % (24 * 60 * 60 * 1000)) / (1000 * 60);
 
     if (info.status === 'closed') {
+        const openDay = info.day ? info.day.charAt(0).toUpperCase() + info.day.slice(1) : '';
         return (
             <>
                 <span className="text-danger font-bold">Closed&nbsp;</span>
                 {info.until &&
-                    <> Opens {info.day ?? ''} {formatTimeString(info.until)}</>
+                    <> Opens {openDay ? `${openDay} at ` : ''} {formatTimeString(info.until)}</>
                 }
             </>
         )
