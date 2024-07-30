@@ -1,50 +1,37 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useId } from 'react';
 import ReactPlayer from 'react-player/file';
 
+import { useFeed } from './FeedVideoPlayer/FeedContext';
 import FeedVideoPlayerControls from './FeedVideoPlayer/FeedVideoPlayerControls';
 
 const FeedVideoPlayer = ({src, caption}) => {
     const ref = useRef(null);
+    const id = useId();
+
+    const {
+        playingId,
+        paused,
+        muted,
+        togglePlay,
+        toggleMuted,
+    } = useFeed();
 
     const [state, setState] = useState({
-        playing: false,
-        muted: false,
         progress: {
             played: 0,
             playedSeconds: 0,
         }
     })
 
-    function play() {
-        setState({...state, playing: true})
-    }
-
-    function pause() {
-        setState({...state, playing: false})
-    }
-
-    function togglePlay() {
-        state.playing ? pause() : play();
-    }
-
-    function toggleMute() {
-        setState({...state, muted: !state.muted})
-    }
-
-    function stop() {
-        pause();
-        ref.current.seekTo(0);
-    }
-
     return (
-        <div className="group relative w-full h-full" onClick={togglePlay}>
+        <div className="group relative w-full h-full" onClick={() => togglePlay(id)}>
             <ReactPlayer
                 url={src}
-                playing={state.playing}
+                playing={playingId === id && !paused}
                 loop={true}
                 controls={false}
                 volume={1}
-                muted={state.muted}
+                muted={muted}
                 width="100%"
                 height="100%"
                 progressInterval={100}
@@ -69,10 +56,10 @@ const FeedVideoPlayer = ({src, caption}) => {
                 }
 
                 <FeedVideoPlayerControls
-                    playing={state.playing}
-                    muted={state.muted}
-                    onPlayToggle={togglePlay}
-                    onMuteToggle={toggleMute}
+                    playing={!paused}
+                    muted={muted}
+                    onPlayToggle={() => (togglePlay(id))}
+                    onMuteToggle={toggleMuted}
                     progress={state.progress}
                 />
             </div>
