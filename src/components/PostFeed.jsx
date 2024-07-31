@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Post from './Post';
-import { FeedProvider } from './posts/FeedVideoPlayer/FeedContext';
+import FeedProvider from './posts/FeedVideoPlayer/FeedProvider';
 
 async function getData(businessId) {
     const res = await fetch(`http://localhost:1337/api/posts?populate=*${businessId ? `&filters[businesses][id][$eq]=${businessId}` : ''}`);
@@ -15,7 +15,11 @@ const PostFeed = async ({businessId}) => {
 
     return (
         <FeedProvider>
-            { posts?.map((post) => <Post post={post.attributes} key={post.id} />) }
+            { posts?.map((post) => (
+                <div>
+                    <Post post={post.attributes} key={post.id} />
+                </div>
+            )) }
         </FeedProvider>
     )
 }
