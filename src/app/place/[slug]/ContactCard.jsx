@@ -25,45 +25,47 @@ const ContactCard = ({info}) => {
     }];
 
     return (
-        <Card>
+        <>
             {!!info.location &&
-                <>
-                    <div className="m-[-1rem] mb-4">
-                        <LazyMap markers={markers} className="w-full h-40" />
-                    </div>
+                <LazyMap markers={markers} className="w-full h-40" />
+            }
+
+            <div className="p-4">
+                {!!info.location &&
+
                     <ContactRow icon={<FaMapMarkedAlt />}>
                         {info.location.address}
                     </ContactRow>
-                </>
-            }
-            {!!info.website &&
-                <ContactRow icon={<FaGlobeAmericas />}>
-                    <a href={info.website} target="_blank">Website</a>
-                </ContactRow>
-            }
-            {!!info.phone &&
-                <ContactRow icon={<FaPhone />}>
-                    {parsePhoneNumber(info.phone).format('NATIONAL')}
-                </ContactRow>
-            }
-            
-            {/* Socials */}
-            <div className="flex justify-center gap-3 text-3xl">
-                {!!info.facebook &&
-                    <a className="block text-[#1877f2]" href={`https://facebook.com/${info.facebook}`} target="_blank"><FaFacebook /></a>
                 }
-                {!!info.instagram &&
-                    <a className="block text-[#c32aa3]" href={`https://instagram.com/${info.instagram}`} target="_blank"><FaInstagram /></a>
-                }
-                {!!info.twitter &&
-                    <a className="block text-[#000]" href={`https://x.com/${info.twitter}`} target="_blank"><FaXTwitter /></a>
-                }
-                {!!info.tiktok &&
-                    <a className="block text-[#010101]" href={`https://tiktok.com/@${info.tiktok}`} target="_blank"><FaTiktok /></a>
-                }
-            </div>
 
-        </Card>
+                {!!info.website &&
+                    <ContactRow icon={<FaGlobeAmericas />}>
+                        <a href={info.website} target="_blank">Website</a>
+                    </ContactRow>
+                }
+                {!!info.phone &&
+                    <ContactRow icon={<FaPhone />}>
+                        {parsePhoneNumber(info.phone).format('NATIONAL')}
+                    </ContactRow>
+                }
+                
+                {/* Socials */}
+                <div className="flex justify-center gap-3 text-3xl">
+                    {!!info.facebook &&
+                        <a className="block text-[#1877f2]" href={`https://facebook.com/${info.facebook}`} target="_blank"><FaFacebook /></a>
+                    }
+                    {!!info.instagram &&
+                        <a className="block text-[#c32aa3]" href={`https://instagram.com/${info.instagram}`} target="_blank"><FaInstagram /></a>
+                    }
+                    {!!info.twitter &&
+                        <a className="block text-[#000]" href={`https://x.com/${info.twitter}`} target="_blank"><FaXTwitter /></a>
+                    }
+                    {!!info.tiktok &&
+                        <a className="block text-[#010101]" href={`https://tiktok.com/@${info.tiktok}`} target="_blank"><FaTiktok /></a>
+                    }
+                </div>
+            </div>
+        </>
     );
 }
 

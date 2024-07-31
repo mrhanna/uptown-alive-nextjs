@@ -60,7 +60,7 @@ const Banner = ({
     });
 
     return (
-        <div className="w-full relative mb-4 h-[400px] [&_.slick-track]:leading-[0]">
+        <div className="w-full relative h-[400px] [&_.slick-track]:leading-[0]">
             { images &&
                 <Slider {...slickSettings} ref={slider}>
                     {images}

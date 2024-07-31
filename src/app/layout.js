@@ -18,9 +18,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${lato.className} bg-offwhite`}>
-        <div className="flex relative overflow">
+        <div className="flex relative">
           <Sidebar />
-          <div className="overflow-x-auto relative">
+          <div className="grow relative min-w-0">
             {children}
           </div>
         </div>

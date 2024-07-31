@@ -31,11 +31,16 @@ export default async function BusinessPage({ params }) {
         <main>
             <Banner name={business.name} hours={business.hours} tags={business.tags?.data}  photos={business.photos?.data} />
             
-            <div className="px-8 md:grid md:grid-cols-3">
-                <ContactCard info={contactInfo} />
+            <div className="flex">
+                <div className="grow">
+                    <PostFeed businessId={id} />
+                </div>
+                <div className="grow-0 bg-white">
+                    <div className="sticky top-0 p-4">
+                       <ContactCard info={contactInfo} />
+                    </div>
+                </div>
             </div>
-
-            <PostFeed businessId={id} />
         </main>
     ) : <main />
 }
