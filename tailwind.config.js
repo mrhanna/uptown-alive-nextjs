@@ -36,6 +36,7 @@ module.exports = {
       xanthous: '#fcbf49ff',
       vanilla: '#eae2b7ff',
       offwhite: '#fafafa',
+      lightgray: '#eee',
       white: '#ffffff',
       success: colors.green[600],
       danger: colors.red[600],

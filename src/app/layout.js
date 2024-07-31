@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${lato.className} bg-offwhite`}>
+      <body className={`${lato.className} bg-lightgray`}>
         <div className="flex relative">
           <Sidebar />
           <div className="grow relative min-w-0">

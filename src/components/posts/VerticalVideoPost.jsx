@@ -7,8 +7,8 @@ const VerticalVideoPost = ({ post }) => {
 
     return (
         <article>
-            <div className="relative aspect-[9/16] max-h-screen mx-auto">
-                <FeaturedMedia featuredMedia={post.featuredMedia} caption={!!post.content && <BlocksRenderer content={post.content} />} />
+            <div className="relative aspect-[9/16] max-h-screen md:max-h-[600px] mx-auto">
+                <FeaturedMedia rounded={true} featuredMedia={post.featuredMedia} caption={!!post.content && <BlocksRenderer content={post.content} />} />
 
                 {/* { !!post.content &&
                     <div className="absolute bottom-0 left-0 p-4 font-bold text-white">

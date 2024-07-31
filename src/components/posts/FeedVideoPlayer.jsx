@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player/file';
 import { useFeed } from './FeedVideoPlayer/FeedContext';
 import FeedVideoPlayerControls from './FeedVideoPlayer/FeedVideoPlayerControls';
 
-const FeedVideoPlayer = ({src, caption}) => {
+const FeedVideoPlayer = ({src, caption, rounded}) => {
     const ref = useRef(null);
     const id = useId();
 
@@ -24,7 +24,7 @@ const FeedVideoPlayer = ({src, caption}) => {
     })
 
     return (
-        <div className="group relative w-full h-full" onClick={() => togglePlay(id)}>
+        <div className={`group relative w-full h-full ${rounded && 'rounded-2xl overflow-hidden'}`} onClick={() => togglePlay(id)}>
             <ReactPlayer
                 url={src}
                 playing={playingId === id && !paused}

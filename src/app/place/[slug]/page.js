@@ -32,10 +32,10 @@ export default async function BusinessPage({ params }) {
             <Banner name={business.name} hours={business.hours} tags={business.tags?.data}  photos={business.photos?.data} />
             
             <div className="flex">
-                <div className="grow">
+                <div className="grow min-w-0">
                     <PostFeed businessId={id} />
                 </div>
-                <div className="grow-0 bg-white">
+                <div className="grow-0 shrink-0 bg-white">
                     <div className="sticky top-0 p-4">
                        <ContactCard info={contactInfo} />
                     </div>
