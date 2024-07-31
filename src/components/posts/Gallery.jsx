@@ -56,7 +56,7 @@ const Gallery = ({
     });
 
     return (
-        <div className="w-full relative my-12 [&_.slick-track]:leading-[0]">
+        <div className="w-full relative mb-12 [&_.slick-track]:leading-[0]">
             { images &&
                 <Slider {...slickSettings} ref={slider}>
                     {images}

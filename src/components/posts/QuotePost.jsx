@@ -13,7 +13,7 @@ const merriweather = Merriweather({
 
 const QuotePost = ({post}) => {
     return (
-        <article className={`${merriweather.className} py-12 my-8 mx-auto max-w-screen-md max-md:container bg-white`}>
+        <article className={`${merriweather.className} py-12 mx-auto max-w-screen-md max-md:container bg-white`}>
             <blockquote className="px-20 py-4 text-2xl leading-relaxed text-dark">
                 <FaQuoteLeft className="w-8 h-8 block mb-8 text-[#ccc]" />
                 <div className="my-8">

@@ -15,11 +15,13 @@ const PostFeed = async ({businessId}) => {
 
     return (
         <FeedProvider>
+            <div className="px-8">
             { posts?.map((post) => (
-                <div>
+                <div className="bg-white m-4">
                     <Post post={post.attributes} key={post.id} />
                 </div>
             )) }
+            </div>
         </FeedProvider>
     )
 }
