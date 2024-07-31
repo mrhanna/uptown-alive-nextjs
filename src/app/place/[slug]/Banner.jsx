@@ -76,7 +76,7 @@ const Banner = ({
             </button>
 
             <div className="absolute bottom-0 bg-gradient-to-t from-black text-white w-full pb-6 pt-20">
-                <div className="container">
+                <div className="px-8">
                     <h1 className={`${inter.className} text-5xl leading-relaxed`}>{name}</h1>
                     <div className="flex gap-8 items-center">
                         <p className="text-base py-1"><OpenStatus hours={hours} /></p>

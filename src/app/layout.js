@@ -1,7 +1,8 @@
 import { Lato } from 'next/font/google'
 
 import './globals.css'
-import Header from './header'
+import Header from './Header'
+import Sidebar from './Sidebar';
 
 const lato = Lato({
   weight: '400',
@@ -17,8 +18,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${lato.className} bg-offwhite`}>
-        <Header />
-        {children}
+        <div className="flex relative overflow">
+          <Sidebar />
+          <div className="overflow-x-auto relative">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   )

@@ -31,7 +31,7 @@ export default async function BusinessPage({ params }) {
         <main>
             <Banner name={business.name} hours={business.hours} tags={business.tags?.data}  photos={business.photos?.data} />
             
-            <div className="container md:grid md:grid-cols-3">
+            <div className="px-8 md:grid md:grid-cols-3">
                 <ContactCard info={contactInfo} />
             </div>
 
