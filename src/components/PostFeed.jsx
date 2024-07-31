@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Post from './Post';
+import PostExcerpt from './PostExcerpt';
 import FeedProvider from './posts/FeedVideoPlayer/FeedProvider';
 
 async function getData(businessId) {
@@ -18,7 +18,7 @@ const PostFeed = async ({businessId}) => {
             <div className="px-16">
             { posts?.map((post) => (
                 <div className="my-16">
-                    <Post post={post.attributes} key={post.id} />
+                    <PostExcerpt post={post.attributes} key={post.id} />
                 </div>
             )) }
             </div>
