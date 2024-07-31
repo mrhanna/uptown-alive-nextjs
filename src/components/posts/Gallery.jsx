@@ -64,14 +64,14 @@ const Gallery = ({
             }
             
             { currentSlide > 0 &&
-                <button className="absolute z-30 top-0 bottom-0 left-4" onClick={() => { slider?.current?.slickPrev() }}>
-                    <FaChevronLeft className="w-[24px] h-[24px]" />
+                <button className="absolute z-30 left-[-3rem] top-1/2 mt-[-12px] w-[24px] h-[24px] text-2xl text-center leading-[24px] hover:text-red" onClick={() => { slider?.current?.slickPrev() }}>
+                    <FaChevronLeft />
                 </button>
             }
 
             { currentSlide < media.length - 1 &&  
-                <button className="absolute z-30 top-0 bottom-0 right-4" onClick={() => { slider?.current?.slickNext() }}>
-                    <FaChevronRight className="w-[24px] h-[24px]" />
+                <button className="absolute z-30 right-[-3rem] top-1/2 mt-[-12px] w-[24px] h-[24px] text-2xl text-center leading-[24px] hover:text-red" onClick={() => { slider?.current?.slickNext() }}>
+                    <FaChevronRight />
                 </button>
             }
         </div>
