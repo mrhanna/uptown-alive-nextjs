@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 
 import Post from '@/components/Post';
+import { FeedProvider } from '@/components/posts/FeedVideoPlayer/FeedContext';
 
 async function getData(id) {
     const res = await fetch(`http://localhost:1337/api/posts/${id}?populate=*`);
@@ -17,8 +18,10 @@ export default async function PostPage({ params }) {
     }
 
     return post ? (
-        <main className="mt-32">
-            <Post post={post} />
+        <main className="px-8 mx-auto">
+            <FeedProvider>
+                <Post post={post} />
+            </FeedProvider>
         </main>
     ) : <main />
 }
