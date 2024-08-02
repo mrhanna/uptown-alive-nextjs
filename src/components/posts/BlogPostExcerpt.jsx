@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+
 import BlockRendererClient from './BlockRendererClient';
 import FeaturedMedia from './FeaturedMedia';
 
@@ -42,8 +44,8 @@ const BlogPost = ({ post }) => {
                 <BlockRendererClient content={post.content.slice(0, 3)} />
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-white from-50% text-center pt-32 pb-8">
-                <button className="py-4 px-8 bg-red-darkest text-white">Read More</button>
+            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-white from-50% text-center pt-24 pb-8">
+                <Link className="py-4 px-8 bg-red-darkest text-white inline-block" href={`/post/${post.id}`}>Read More</Link>
             </div>
         </article>
     )
