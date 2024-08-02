@@ -10,8 +10,8 @@ const FeedVideoPlayerControls = ({playing, progress, muted, onPlayToggle, onMute
     return (
         <div className={`
             flex items-center gap-4
-            w-full z-10 text-offwhite text-2xl
-            max-h-0 opacity-0 group-hover:max-h-8 group-hover:opacity-100
+            w-full z-10 text-offwhite text-2xl px-4
+            max-h-0 opacity-0 group-hover:max-h-16 group-hover:opacity-100 group-hover:py-4
             transition-all
             `}>
             <button onClick={(e) => {

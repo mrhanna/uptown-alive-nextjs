@@ -47,16 +47,16 @@ const FeedVideoPlayer = ({src, caption, rounded}) => {
             <div className={`
                 absolute left-0 bottom-0 w-full
                 flex flex-col
-                p-4 bg-gradient-to-t from-black
+                ${!!caption ? 'bg-gradient-to-t from-black' : 'bg-black'}
                 `}>
                 {!!caption &&
-                    <div className="text-white group-hover:my-4 transition-all">
+                    <div className="text-white p-4 pt-8 transition-all">
                         {caption}
                     </div>
                 }
 
                 <FeedVideoPlayerControls
-                    playing={!paused}
+                    playing={playingId === id && !paused}
                     muted={muted}
                     onPlayToggle={() => (togglePlay(id))}
                     onMuteToggle={toggleMuted}
