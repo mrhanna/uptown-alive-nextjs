@@ -20,9 +20,9 @@ const PostFeed = async ({businessId}) => {
 
     return (
         <FeedProvider>
-            <div className="px-16">
+            <div className="px-16 py-8 text-center">
             { posts?.map((post) => (
-                <div className="my-16">
+                <div className="my-8 inline-block text-left">
                     <PostExcerpt post={post} key={post.id} />
                 </div>
             )) }

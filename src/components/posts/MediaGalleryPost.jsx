@@ -14,7 +14,7 @@ const MediaGalleryPost = ({ post }) => {
     });
 
     return (
-        <article className="py-12 px-20 bg-white">
+        <article className="py-12 px-20 bg-white max-w-screen-md">
             <Gallery media={post.gallery.data} /> 
             
             <p className="text-sm mb-8">Published {published}</p>
