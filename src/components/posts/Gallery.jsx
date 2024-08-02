@@ -10,6 +10,8 @@ import {
     FaChevronRight,
 } from 'react-icons/fa';
 
+import FeedVideoPlayer from './FeedVideoPlayer';
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import "./slickfix.css"; //.slick-track { line-height: 0 }
@@ -49,7 +51,7 @@ const Gallery = ({
         else if (attributes.mime.indexOf('video') === 0) {
             return (
                 <div className="w-full aspect-video relative text-center" key={id}>
-                    <FeedVideoPlayer src={`http://localhost:1337${featuredMedia.data.attributes.url}`} caption={caption} />
+                    <FeedVideoPlayer src={`http://localhost:1337${attributes.url}`} />
                 </div>
             );
         }
