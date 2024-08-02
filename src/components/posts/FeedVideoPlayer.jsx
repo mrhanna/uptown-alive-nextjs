@@ -45,7 +45,7 @@ const FeedVideoPlayer = ({src, caption, rounded}) => {
             />
 
             <div className={`
-                absolute left-0 bottom-0 
+                absolute left-0 bottom-0 w-full
                 flex flex-col
                 p-4 bg-gradient-to-t from-black
                 `}>
