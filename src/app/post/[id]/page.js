@@ -7,7 +7,10 @@ async function getData(id) {
     const res = await fetch(`http://localhost:1337/api/posts/${id}?populate=*`);
     
     const data = await res.json();
-    return data.data?.attributes;
+    return !data.data ? null : {
+        ...data.data?.attributes,
+        id: data.data?.id,
+    }
 }
 
 export default async function PostPage({ params }) {

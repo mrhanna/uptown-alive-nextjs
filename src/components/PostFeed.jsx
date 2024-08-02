@@ -7,7 +7,12 @@ async function getData(businessId) {
     const res = await fetch(`http://localhost:1337/api/posts?populate=*${businessId ? `&filters[businesses][id][$eq]=${businessId}` : ''}`);
     
     const data = await res.json();
-    return data.data;
+    return data.data.map((post) =>
+        ({
+            ...post.attributes,
+            id: post.id
+        })
+    )
 }
 
 const PostFeed = async ({businessId}) => {
@@ -18,7 +23,7 @@ const PostFeed = async ({businessId}) => {
             <div className="px-16">
             { posts?.map((post) => (
                 <div className="my-16">
-                    <PostExcerpt post={post.attributes} key={post.id} />
+                    <PostExcerpt post={post} key={post.id} />
                 </div>
             )) }
             </div>
