@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 
 import Post from '@/components/Post';
-import { FeedProvider } from '@/components/posts/FeedVideoPlayer/FeedContext';
+import FeedProvider from '@/components/posts/FeedVideoPlayer/FeedProvider';
 
 async function getData(id) {
     const res = await fetch(`http://localhost:1337/api/posts/${id}?populate=*`);
