@@ -3,16 +3,13 @@ import React from 'react';
 import PostExcerpt from './PostExcerpt';
 import FeedProvider from './posts/FeedVideoPlayer/FeedProvider';
 
+import { strapiFlatten } from '@/api/StrapiHelper';
+
 async function getData(businessId) {
     const res = await fetch(`http://localhost:1337/api/posts?populate=*${businessId ? `&filters[businesses][id][$eq]=${businessId}` : ''}`);
     
     const data = await res.json();
-    return data.data.map((post) =>
-        ({
-            ...post.attributes,
-            id: post.id
-        })
-    )
+    return strapiFlatten(data);
 }
 
 const PostFeed = async ({businessId}) => {

@@ -45,15 +45,15 @@ const Banner = ({
 }) => {
     const slider = useRef(null);
 
-    const images = photos?.map(({attributes}, i) => {
+    const images = photos?.map((photo, i) => {
         return (
             <div className="h-[400px]" key={i}>
                 <Image 
                     loader={imageLoader}
-                    src={attributes.url} 
-                    alt={attributes.alternativeText} 
+                    src={photo.url} 
+                    alt={photo.alternativeText} 
                     height={400}
-                    width={400*attributes.width/attributes.height}
+                    width={400*photo.width/photo.height}
                 />
             </div>
         )

@@ -32,13 +32,13 @@ const Gallery = ({
         beforeChange: (i, next) => { setCurrentSlide(next) },
     };
 
-    const images = media?.map(({attributes, id}) => {
-        if (attributes.mime.indexOf('image') === 0) {
+    const images = media?.map((item) => {
+        if (item.mime.indexOf('image') === 0) {
             return (
-                <div className="w-full aspect-video relative text-center" key={id}>
+                <div className="w-full aspect-video relative text-center" key={item.id}>
                     <Image 
-                        src={`http://localhost:1337${attributes.url}`} 
-                        alt={attributes.alternativeText || ''} 
+                        src={`http://localhost:1337${item.url}`} 
+                        alt={item.alternativeText || ''} 
                         fill
                         style={{
                             objectFit: 'contain',
@@ -48,10 +48,10 @@ const Gallery = ({
             );
         }
     
-        else if (attributes.mime.indexOf('video') === 0) {
+        else if (item.mime.indexOf('video') === 0) {
             return (
-                <div className="w-full aspect-video relative text-center" key={id}>
-                    <FeedVideoPlayer src={`http://localhost:1337${attributes.url}`} />
+                <div className="w-full aspect-video relative text-center" key={item.id}>
+                    <FeedVideoPlayer src={`http://localhost:1337${item.url}`} />
                 </div>
             );
         }

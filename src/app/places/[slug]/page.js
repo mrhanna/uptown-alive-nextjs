@@ -1,21 +1,21 @@
 import { notFound } from 'next/navigation';
 
-import  { HoursListing, OpenStatus } from './Hours';
-import LocationCard from './LocationCard';
 import ContactCard from './ContactCard';
 import Banner from './Banner';
 
 import PostFeed from '@/components/PostFeed';
 
+import { strapiFlatten } from '@/api/StrapiHelper';
+
 async function getData(slug) {
     const res = await fetch(`http://localhost:1337/api/slugify/slugs/business/${slug}?populate=*`);
     
     const data = await res.json();
-    return data.data;
+    return strapiFlatten(data);
 }
 
 export default async function BusinessPage({ params }) {
-    const { attributes: business, id } = await getData(params.slug);
+    const business = await getData(params.slug);
 
     if (!business) {
         return notFound();
@@ -29,11 +29,11 @@ export default async function BusinessPage({ params }) {
 
     return business ? (
         <main>
-            <Banner name={business.name} hours={business.hours} tags={business.tags?.data}  photos={business.photos?.data} />
+            <Banner name={business.name} hours={business.hours} tags={business.tags}  photos={business.photos} />
             
             <div className="flex">
                 <div className="grow min-w-0">
-                    <PostFeed businessId={id} />
+                    <PostFeed businessId={business.id} />
                 </div>
                 <div className="grow-0 shrink-0 bg-white">
                     <div className="sticky top-0 p-4">

@@ -6,7 +6,7 @@ const TagButton = ({
 }) => {
     return (
         <button className={`rounded-lg px-4 py-1 drop-shadow bg-xanthous text-dark hover:bg-offwhite transition ${className}`}>
-            {tag.attributes.name}
+            {tag.name}
         </button>
     )
 }
