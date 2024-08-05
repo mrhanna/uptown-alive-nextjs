@@ -1,6 +1,7 @@
 import React from 'react';
 import BlockRendererClient from './BlockRendererClient';
-import Gallery from './Gallery';
+// import Gallery from './Gallery';
+import UASlider from '../UASlider';
 
 const MediaGalleryPost = ({ post }) => {
     const published = new Date(post.publishedAt).toLocaleString('en-US', {
@@ -14,11 +15,13 @@ const MediaGalleryPost = ({ post }) => {
     });
 
     return (
-        <article className="py-12 px-20 bg-white max-w-screen-md">
-            <Gallery media={post.gallery} /> 
+        <article className="py-12 bg-white max-w-screen-md">
+            <UASlider media={post.gallery} /> 
             
-            <p className="text-sm mb-8">Published {published}</p>
-            <BlockRendererClient content={post.content} />
+            <div className="px-20">
+                <p className="text-sm mb-8">Published {published}</p>
+                <BlockRendererClient content={post.content} />
+            </div>
         </article>
     )
 }

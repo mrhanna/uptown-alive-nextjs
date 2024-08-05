@@ -24,10 +24,15 @@ const FeedProvider = ({children}) => {
         setState({...state, muted: !state.muted})
     }
 
+    const stopAll = () => {
+        setState({...state, paused: true, playingId: 0});
+    }
+
     const value = {
         ...state,
         togglePlay,
         toggleMuted,
+        stopAll,
     }
 
     return (

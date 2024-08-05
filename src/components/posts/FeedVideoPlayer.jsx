@@ -1,11 +1,11 @@
-import React, { useState, useRef, useId } from 'react';
+import React, { useState, useRef, useId, useImperativeHandle, forwardRef } from 'react';
 import ReactPlayer from 'react-player/file';
 
 import { useFeed } from './FeedVideoPlayer/FeedContext';
 import FeedVideoPlayerControls from './FeedVideoPlayer/FeedVideoPlayerControls';
 
-const FeedVideoPlayer = ({src, caption, rounded}) => {
-    const ref = useRef(null);
+const FeedVideoPlayer = forwardRef(({src, caption, rounded}, ref) => {
+    const internalRef = useRef(null);
     const id = useId();
 
     const {
@@ -14,12 +14,31 @@ const FeedVideoPlayer = ({src, caption, rounded}) => {
         muted,
         togglePlay,
         toggleMuted,
+        stopAll,
     } = useFeed();
 
     const [state, setState] = useState({
         progress: {
             played: 0,
             playedSeconds: 0,
+        }
+    })
+
+    useImperativeHandle(ref, () => {
+        return {
+            play() {
+                togglePlay(id);
+            },
+            stop() {
+                stopAll();
+                internalRef.current.seekTo(0);
+                setState({
+                    progress: {
+                        played: 0,
+                        playedSeconds: 0,
+                    }
+                });
+            },
         }
     })
 
@@ -36,7 +55,7 @@ const FeedVideoPlayer = ({src, caption, rounded}) => {
                 height="100%"
                 progressInterval={100}
                 onProgress={(progress) => { setState({...state, progress})}}
-                ref={ref}
+                ref={internalRef}
                 config={{
                     file: {
                           attributes: {disablePictureInPicture: true}
@@ -65,6 +84,6 @@ const FeedVideoPlayer = ({src, caption, rounded}) => {
             </div>
         </div>
     )
-}
+});
 
 export default FeedVideoPlayer;
