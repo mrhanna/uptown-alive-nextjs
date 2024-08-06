@@ -39,6 +39,7 @@ function DateRow({ day, info, isToday }) {
 }
 
 const OpenStatus = ({hours}) => {
+    if (!hours) return undefined;
     const info = calculateOpenStatus(hours);
     const timeUntil = ((Time(info.until) - Time(new Date())) % (24 * 60 * 60 * 1000)) / (1000 * 60);
 

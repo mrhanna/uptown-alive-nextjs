@@ -13,7 +13,9 @@ export default async function BusinessPage({ params }) {
 
     return businesses ? (
         <main>
-            {businesses.map((business) => <BusinessCard business={business} />)}
+            <div className="flex flex-wrap flex-none gap-8 p-8">
+                {businesses.map((business) => <BusinessCard business={business} />)}
+            </div>
         </main>
     ) : <main />
 }

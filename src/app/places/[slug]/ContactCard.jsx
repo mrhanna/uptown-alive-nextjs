@@ -20,8 +20,8 @@ import {
 
 const ContactCard = ({info}) => {
     const markers = [{
-        lat: info.location.lat,
-        lon: info.location.lon,
+        lat: info.location?.lat,
+        lon: info.location?.lon,
     }];
 
     return (
