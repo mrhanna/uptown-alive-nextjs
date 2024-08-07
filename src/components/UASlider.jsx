@@ -64,7 +64,7 @@ const UASlider = ({
     });
 
     return (
-        <div className={`w-full relative mb-12 [&_.slick-track]:leading-[0] ${overlayArrows ? '' : 'px-20'}`} style={{height: height ? height + 'px' : 'auto'}}>
+        <div className={`group w-full relative mb-12 [&_.slick-track]:leading-[0] ${overlayArrows ? '' : 'px-20'}`} style={{height: height ? height + 'px' : 'auto'}}>
             { slides &&
                 <Slider {...slickSettings} ref={slider}>
                     {slides}
@@ -72,18 +72,20 @@ const UASlider = ({
             }
             
             { (currentSlide > 0 || settings.infinite) &&
-                <button className={`absolute z-30 px-8 top-0 bottom-0 left-4`} onClick={() => { slider?.current?.slickPrev() }}>
-                    <div className="absolute rounded-[50%] text-2xl leading-8 w-8 h-8 top-1/2 -mt-4 left-1/2 -ml-4">
-                        <FaChevronLeft className="inline" />
-                    </div>
+                <button className={`group/me absolute z-30 px-8 top-0 bottom-0 left-0`} onClick={() => { slider?.current?.slickPrev() }}>
+                    <FaChevronLeft className={`
+                        rounded-[50%] p-2 w-8 h-8 text-center transition-colors
+                        ${overlayArrows ? 'bg-[#fff7] group-hover:bg-[#fffc] group-hover/me:bg-[#fff]' : 'hover:text-red'}
+                    `}  />
                 </button>
             }
 
             { (currentSlide < media.length - 1 || settings.infinite) &&  
-                <button className={`absolute z-30 px-8 top-0 bottom-0 right-4`} onClick={() => { slider?.current?.slickNext() }}>
-                    <div className="absolute rounded-[50%] text-2xl leading-8 w-8 h-8 top-1/2 -mt-4 left-1/2 -ml-4 text-center">
-                        <FaChevronRight className="inline"  />
-                    </div>
+                <button className={`group/me absolute z-30 px-8 top-0 bottom-0 right-0`} onClick={() => { slider?.current?.slickNext() }}>                       
+                    <FaChevronRight className={`
+                        rounded-[50%] p-2 w-8 h-8 text-center transition-colors
+                        ${overlayArrows ? 'bg-[#fff7] group-hover:bg-[#fffc] group-hover/me:bg-[#fff]' : 'hover:text-red'}
+                    `}  />
                 </button>
             }
         </div>
