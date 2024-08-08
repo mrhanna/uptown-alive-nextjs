@@ -51,7 +51,7 @@ const UASlider = ({
                         width={settings.variableWidth && item.width * height / item.height}
                         height={settings.variableWidth && height}
                         style={{
-                            objectFit: 'contain',
+                            objectFit: 'cover',
                         }}
                     />
                 }
@@ -63,6 +63,18 @@ const UASlider = ({
         );
     });
 
+    const onLeft = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        slider?.current?.slickPrev();
+    }
+
+    const onRight = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        slider?.current?.slickNext();
+    }
+
     return (
         <div className={`group w-full relative mb-12 [&_.slick-track]:leading-[0] ${overlayArrows ? '' : 'px-20'}`} style={{height: height ? height + 'px' : 'auto'}}>
             { slides &&
@@ -72,7 +84,7 @@ const UASlider = ({
             }
             
             { (currentSlide > 0 || settings.infinite) &&
-                <button className={`group/me absolute z-30 px-8 top-0 bottom-0 left-0`} onClick={() => { slider?.current?.slickPrev() }}>
+                <button className={`group/me absolute z-30 px-8 top-0 bottom-0 left-0`} onClick={onLeft}>
                     <FaChevronLeft className={`
                         rounded-[50%] p-2 w-8 h-8 text-center transition-colors
                         ${overlayArrows ? 'bg-[#fff7] group-hover:bg-[#fffc] group-hover/me:bg-[#fff]' : 'hover:text-red'}
@@ -81,7 +93,7 @@ const UASlider = ({
             }
 
             { (currentSlide < media.length - 1 || settings.infinite) &&  
-                <button className={`group/me absolute z-30 px-8 top-0 bottom-0 right-0`} onClick={() => { slider?.current?.slickNext() }}>                       
+                <button className={`group/me absolute z-30 px-8 top-0 bottom-0 right-0`} onClick={onRight}>                       
                     <FaChevronRight className={`
                         rounded-[50%] p-2 w-8 h-8 text-center transition-colors
                         ${overlayArrows ? 'bg-[#fff7] group-hover:bg-[#fffc] group-hover/me:bg-[#fff]' : 'hover:text-red'}
