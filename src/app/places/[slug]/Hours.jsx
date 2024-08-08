@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -161,7 +163,7 @@ function nextOpenTime(hours, now) {
 
     // i.e. start tomorrow, end 7 days from now
     for (let i = 1; i < 7; i++) {
-        const day = days.at(today + i - 7);
+        const day = days.at(now.getDay() + i - 7);
         
         if (!hours[day].closed) {
             return {
