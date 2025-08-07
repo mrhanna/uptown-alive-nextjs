@@ -1,3 +1,37 @@
+# Uptown Alive - Frontend
+
+**Status:** 🛑 _Permanently shelved_  
+**Stack:** Next.js · Tailwind CSS · TypeScript · Strapi (API)
+
+Uptown Alive was a solo project aimed at building a local business directory and content platform that blended directory data with social-style media to drive discovery and engagement.
+
+This repo contains the frontend, built with **Next.js** and **Tailwind CSS**, and designed to deliver a fast, responsive experience across devices. Features included:
+
+- **Business landing pages** that surfaced directory and media content in a unified layout
+- Smart **video playback logic** for auto-pausing inactive elements
+- Responsive components for diverse post types: blog articles, video, galleries, and more
+- Integrated with a custom Strapi backend (see [backend repo](https://github.com/mrhanna/uptown-alive-strapi) if available)
+
+Development was guided by an evolving content strategy in collaboration with a media partner. The project was shelved in 2024 after a competing platform launched ahead of schedule.
+
+> ⚠️ **Note to reviewers:** Some parts of the UI—particularly responsive behavior—are not fully polished. This prototype was built to demonstrate a proof of concept to the media partner: how content could be pushed to Strapi and reflected in real time on a business landing page. The focus was speed and flexibility, not refinement. Screenshots below reflect the state at the time the project was paused.
+
+> While the project is no longer active, it reflects my ability to design and build a modern, performant frontend with thoughtful UX patterns and full CMS integration.
+
+---
+
+## Screenshots
+
+![Screenshot of a business landing page, showing banner](docs/uptown1.png)
+
+![Screenshot of a business landing page, showing blog post excerpt](docs/uptown2.png)
+
+![Screenshot of a business landing page, showing gallery](docs/uptown3.png)
+
+![Screenshot of a business landing page, showing quote](docs/uptown4.png)
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
