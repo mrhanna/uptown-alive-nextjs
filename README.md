@@ -10,7 +10,7 @@ This repo contains the frontend, built with **Next.js** and **Tailwind CSS**, an
 - **Business landing pages** that surfaced directory and media content in a unified layout
 - Smart **video playback logic** for auto-pausing inactive elements
 - Responsive components for diverse post types: blog articles, video, galleries, and more
-- Integrated with a custom Strapi backend (see [backend repo](https://github.com/mrhanna/uptown-alive-strapi) if available)
+- Integrated with a custom Strapi backend (see [backend repo](https://github.com/mrhanna/uptown-alive-strapi))
 
 Development was guided by an evolving content strategy in collaboration with a media partner. The project was shelved in 2024 after a competing platform launched ahead of schedule.
 
